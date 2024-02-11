@@ -5,7 +5,6 @@ from pathlib import Path
 
 root = environ.Path(__file__)-2
 env = environ.Env()
-environ.Env.read_env(env.str(root(), '.env'))
 BASE_DIR = root()
 
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
@@ -16,6 +15,7 @@ ALLOWED_HOSTS = env.str('ALLOWED_HOSTS', default='').split(' ')
 
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -24,6 +24,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# packages
+INSTALLED_APPS += [
+    'rest_framework',
+]
+
+# apps
+INSTALLED_APPS += [
+    'women.apps.WomenConfig',
+]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
