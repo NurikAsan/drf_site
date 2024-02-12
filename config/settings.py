@@ -27,12 +27,14 @@ INSTALLED_APPS = [
 # packages
 INSTALLED_APPS += [
     'rest_framework',
+    'drf_spectacular',
 ]
 
 # apps
 INSTALLED_APPS += [
     'women.apps.WomenConfig',
 ]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -85,6 +87,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+REST_FRAMEWORK = {
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
 
 
 LANGUAGE_CODE = 'ru-Ru'
